@@ -4,9 +4,12 @@ const gulp  = require('gulp');
 const shell = require('gulp-shell');
 
 const getData = () => {
+  console.log(`INCOMING_HOOK_BODY: ${process.env.INCOMING_HOOK_BODY}`);
+
+  if (!process.env.INCOMING_HOOK_BODY) return Promise.resolve();
+
   const endpoint = 'https://api.chucknorris.io/jokes/random';
 
-  console.log(`INCOMING_HOOK_BODY: ${process.env.INCOMING_HOOK_BODY}`);
 
   return axios.get(endpoint)
     .then(response => {
