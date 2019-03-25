@@ -6,19 +6,18 @@ const shell = require('gulp-shell');
 const getData = () => {
   const endpoint = 'https://api.chucknorris.io/jokes/random';
 
-  console.log(`POST body: ${process.env.INCOMING_HOOK_BODY}`);
-  console.log(typeof process.env.INCOMING_HOOK_BODY);
+  console.log(`INCOMING_HOOK_BODY: ${process.env.INCOMING_HOOK_BODY}`);
 
   return axios.get(endpoint)
     .then(response => {
       fs.writeFile('src/data/joke.json', JSON.stringify(response.data), (error) => {
         if (error) console.log(error);
 
-        console.log('Success: File saved');
+        console.log('API Success: File saved');
       })
     })
     .catch(error => {
-      console.log(`Error: ${error}`);
+      console.log(`API Error: ${error}`);
     });
 };
 
