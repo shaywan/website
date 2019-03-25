@@ -7,6 +7,7 @@ const getData = () => {
   const endpoint = 'https://api.chucknorris.io/jokes/random';
 
   console.log(`POST body: ${process.env.INCOMING_HOOK_BODY}`);
+  console.log(typeof process.env.INCOMING_HOOK_BODY);
 
   return axios.get(endpoint)
     .then(response => {
