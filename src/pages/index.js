@@ -9,7 +9,6 @@ import data from '../data/joke.json';
 
 const IndexPage = () => (
   <div>
-    <p>{data.value}</p>
   </div>
 )
 
