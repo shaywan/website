@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import Post from '../components/post';
 // import Img from "gatsby-image";
 
 import Layout from "../components/layout";
@@ -13,22 +14,15 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <div style={{ maxWidth: `1000px`, marginBottom: `1.45rem` }}>
-        <ul style={listStyles}>
+      <div>
+        <ul className="posts" style={listStyles}>
           {
             data.allMarkdownRemark.edges.map(edge => {
-              const { node } = edge;
+              const { node: post } = edge;
 
               return (
-                <li key={node.id} style={{ margiBottom: '10px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', paddingBottom: '10px', marginBottom: '20px', borderBottom: '1px solid #dfdfdf' }}>
-                    <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
-                    <span style={{ color: '#888' }}>{new Date(node.frontmatter.date).toLocaleDateString()}</span>
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gridGap: '20px' }}>
-                    <img style={{ display: 'inline-block', maxWidth: '100px' }} src={node.frontmatter.thumbnail} alt="" />
-                    <p>{node.frontmatter.description}</p>
-                  </div>
+                <li key={post.id}>
+                  <Post post={post} />
                 </li>
               );
             })

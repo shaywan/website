@@ -10,10 +10,10 @@ export default function Template ({ data }) {
 
   return (
     <Layout>
-      <Link to={'/'}>Back</Link>
+      <Link className="post__back space__large" to={'/'}>Back</Link>
       <article>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{__html: post.html}} />
+        <h1 className="heading__large">{title}</h1>
+        <div className="body__large" dangerouslySetInnerHTML={{__html: post.html}} />
       </article>
     </Layout>
   );
