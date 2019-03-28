@@ -3,10 +3,6 @@ exports.handler = function (event, context, callback) {
 
   console.log(JSON.stringify(event, null, 2));
 
-  if (!headers["x-dropbox-signature"]) {
-    callback(new Error('Request not from Dropbox'));
-  }
-
   if (query.challenge) {
     callback(null, {
       statusCode: 200,
@@ -17,6 +13,14 @@ exports.handler = function (event, context, callback) {
       }
     });
   };
+
+  if (!headers["x-dropbox-signature"]) {
+    // TODO Send a notification somewhere
+    callback(new Error('Request not from Dropbox'));
+  }
+
+  // Trigger a build
+  // Call webhook with some meta for gulp
 
   callback(null, 'default');
 }
