@@ -19,14 +19,12 @@ a {
 .wrapper {
   height: 100vh;
   display: grid;
-  grid-template-columns: 275px 1fr;
-  grid-template-rows: 125px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
 }
 
-
 header {
-  background: #d1d1d1;
-  grid-column: 2 / 3;
+  background: #212121;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,16 +32,9 @@ header {
 
 main {
   background: white;
-  grid-column: 2 / 3;
-}
-
-aside {
-  background: #003D66;
-  grid-row: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+  padding-top: 6.4rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Post */
