@@ -1,21 +1,73 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link, graphql } from "gatsby";
+// import Img from "gatsby-image";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const listStyles = {
+    listStyle: 'none',
+    padding: 0,
+    margin: 0
+  };
 
-export default IndexPage
+  return (
+    <Layout>
+      <div style={{ maxWidth: `1000px`, marginBottom: `1.45rem` }}>
+        <ul style={listStyles}>
+          {
+            data.allMarkdownRemark.edges.map(edge => {
+              const { node } = edge;
+
+              return (
+                <li key={node.id} style={{ margiBottom: '10px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', paddingBottom: '10px', marginBottom: '20px', borderBottom: '1px solid #dfdfdf' }}>
+                    <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+                    <span style={{ color: '#888' }}>{new Date(node.frontmatter.date).toLocaleDateString()}</span>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gridGap: '20px' }}>
+                    <img style={{ display: 'inline-block', maxWidth: '100px' }} src={node.frontmatter.thumbnail} alt="" />
+                    <p>{node.frontmatter.description}</p>
+                  </div>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </Layout>
+  );
+}
+
+export default IndexPage;
+
+export const query = graphql`
+  query IndexPageQuery {
+    allMarkdownRemark(
+      filter: {
+        frontmatter:{
+          published: {
+            eq: true
+          }
+        }
+      }
+      sort: {
+        fields: frontmatter___date
+        order: DESC
+      }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            path
+            title
+            description
+            thumbnail
+            date
+          }
+        }
+      }
+    }
+  }
+`;
