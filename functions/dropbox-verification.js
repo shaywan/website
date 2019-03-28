@@ -1,5 +1,5 @@
 exports.handler = function (event, context, callback) {
-  const { queryStringParameters: query } = event;
+  const { headers, queryStringParameters: query } = event;
 
   console.log(JSON.stringify(event, null, 2));
 
