@@ -22,5 +22,8 @@ exports.handler = function (event, context, callback) {
   // Trigger a build
   // Call webhook with some meta for gulp
 
-  callback(null, 'default');
+  callback(null, {
+    statusCode: 200,
+    body: 'Webhook received from Dropbox. Build triggered.'
+  });
 }
