@@ -8,7 +8,8 @@ const fetchPosts = () => {
 
   console.log(`INCOMING_HOOK_BODY: ${webhookBody}`);
 
-  if (!webhookBody) return Promise.resolve();
+  // Comment temporary
+  // if (!webhookBody) return Promise.resolve();
 
   return fetchBlogPosts();
 };
