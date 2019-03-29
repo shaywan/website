@@ -1,0 +1,29 @@
+{
+  "entries": [{
+      ".tag": "file",
+      "name": "welcome.rtf",
+      "path_lower": "/apps/shaywan-netlify/welcome.rtf",
+      "path_display": "/Apps/shaywan-netlify/welcome.rtf",
+      "id": "id:mJ-oxQwaOcgAAAAAAAALuQ",
+      "client_modified": "2019-03-29T00:11:08Z",
+      "server_modified": "2019-03-29T12:08:19Z",
+      "rev": "01400000000137250820",
+      "size": 202,
+      "content_hash": "89a00406fe0edd19aa9a7334f0c7a72c660b47c324f6bb838364647ce153135c"
+    },
+    {
+      ".tag": "file",
+      "name": "test.rtf",
+      "path_lower": "/apps/shaywan-netlify/test.rtf",
+      "path_display": "/Apps/shaywan-netlify/test.rtf",
+      "id": "id:mJ-oxQwaOcgAAAAAAAALvQ",
+      "client_modified": "2019-03-29T12:09:50Z",
+      "server_modified": "2019-03-29T12:09:50Z",
+      "rev": "01430000000137250820",
+      "size": 202,
+      "content_hash": "89a00406fe0edd19aa9a7334f0c7a72c660b47c324f6bb838364647ce153135c"
+    }
+  ],
+  "cursor": "AAFk3TvtfT4ZwC8E4ueY9vL5qL--Oq6SvP6fLastPPG5H-eQAKlHFoiIQ-kQw4-JZdwNQYz-7rzNB-ZV93ZA0jnjTgYcxvYdHBQjkKyYX4oYUWLvpz2RscKLOKAnfiK6miYxfFNBs7N08AdhlazwP0H27zXyfnFJxD-6pk5UY6EYD88NnMvreyzA5lpGYNLzFZ4CSK8-ukrUWdqSSY1kdxyqSnzrpX4JFO0YbRR5EoPIzRygm_QKs3PB2RWlxzJoyNUS07sdEm_HtGPknm_XQunw",
+  "has_more": false
+}

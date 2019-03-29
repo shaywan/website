@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "dropbox": "^4.0.17",
+    "fs-extra": "^7.0.1",
     "gulp": "^4.0.0",
     "gulp-shell": "^0.7.0",
     "netlify-lambda": "^1.4.3",
