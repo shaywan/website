@@ -20,7 +20,7 @@ exports.handler = function (event, context, callback) {
   }
 
   axios
-    .post(process.env.WEB_HOOK_MASTER_BUILD, {
+    .post(process.env.WEB_HOOK_DROPBOX, {
       statusCode: 200,
       body: {
         source: 'dropbox'
