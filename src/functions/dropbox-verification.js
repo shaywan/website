@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+// TODO Add slack notifications
 exports.handler = function (event, context, callback) {
   const { headers, queryStringParameters: query } = event;
 
@@ -15,22 +16,17 @@ exports.handler = function (event, context, callback) {
   };
 
   if (!headers["x-dropbox-signature"]) {
-    // TODO Send a notification somewhere
     callback(new Error('Request not from Dropbox'));
   }
 
   axios
     .post(process.env.WEB_HOOK_DROPBOX, {
-      statusCode: 200,
       body: {
         source: 'dropbox'
       }
     })
     .then(_ => {
-      callback(null, {
-        statusCode: 200,
-        body: 'Build successfully triggered from Dropbox webhook'
-      });
+      callback();
     })
     .catch(error => {
       callback(error);
