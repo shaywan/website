@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 exports.handler = function (event, context, callback) {
   const { headers, queryStringParameters: query } = event;
 
@@ -19,11 +21,17 @@ exports.handler = function (event, context, callback) {
     callback(new Error('Request not from Dropbox'));
   }
 
-  // Trigger a build
-  // Call webhook with some meta for gulp
-
-  callback(null, {
-    statusCode: 200,
-    body: 'Webhook received from Dropbox. Build triggered.'
-  });
+  axios
+    .post(process.env.WEB_HOOK_MASTER_BUILD, {
+      source: 'dropbox'
+    })
+    .then(_ => {
+      callback(null, {
+        statusCode: 200,
+        body: ''
+      });
+    })
+    .catch(error => {
+      callback(error);
+    });
 }
