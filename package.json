@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "build:functions && gulp build",
+    "build": "npm run build:functions && gulp build",
     "build:functions": "netlify-lambda build ./src/functions",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
