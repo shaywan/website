@@ -5,17 +5,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "gulp build",
+    "build": "build:functions && gulp build",
+    "build:functions": "netlify-lambda build ./src/functions",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "serve:functions": "netlify-lambda serve ./src/functions",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
-    "axios": "^0.18.0",
     "gatsby": "^2.2.10",
     "gatsby-image": "^2.0.35",
     "gatsby-plugin-manifest": "^2.0.24",
@@ -31,9 +32,10 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
-    "isomorphic-fetch": "^2.2.1",
+    "axios": "^0.18.0",
     "gulp": "^4.0.0",
     "gulp-shell": "^0.7.0",
+    "netlify-lambda": "^1.4.3",
     "prettier": "^1.16.4"
   },
   "repository": {

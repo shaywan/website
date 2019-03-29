@@ -1,9 +1,7 @@
-require("isomorphic-fetch");
+const axios = require('axios');
 
 exports.handler = function (event, context, callback) {
   const { headers, queryStringParameters: query } = event;
-
-  console.log(JSON.stringify(event, null, 2));
 
   if (query.challenge) {
     callback(null, {
@@ -21,9 +19,9 @@ exports.handler = function (event, context, callback) {
     callback(new Error('Request not from Dropbox'));
   }
 
-
-  fetch(process.env.WEB_HOOK_MASTER_BUILD, {
-      method: 'POST',
+  axios
+    .post(process.env.WEB_HOOK_MASTER_BUILD, {
+      statusCode: 200,
       body: {
         source: 'dropbox'
       }
@@ -31,7 +29,7 @@ exports.handler = function (event, context, callback) {
     .then(_ => {
       callback(null, {
         statusCode: 200,
-        body: ''
+        body: 'Build successfully triggered from Dropbox webhook'
       });
     })
     .catch(error => {
