@@ -26,7 +26,9 @@ exports.handler = function (event, context, callback) {
       }
     })
     .then(_ => {
-      callback();
+      callback(null, {
+        statusCode: 200
+      });
     })
     .catch(error => {
       callback(error);
