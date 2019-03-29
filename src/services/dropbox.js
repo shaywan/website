@@ -10,10 +10,10 @@ const fetchBlogPosts = () => {
     accessToken: process.env.ACCESS_TOKEN_DROPBOX
   });
 
-  // Remove and re-create the posts directory
   const POSTS_DIR = path.resolve(__dirname, '../pages/posts');
-  // fs.removeSync(POSTS_DIR);
-  // fs.ensureDirSync(POSTS_DIR);
+
+  fs.removeSync(POSTS_DIR);
+  fs.ensureDirSync(POSTS_DIR);
 
   // TODO Logic for has_more
   return dbx
@@ -26,9 +26,12 @@ const fetchBlogPosts = () => {
           dbx
             .filesDownload({ path: path_lower })
             .then(data => {
-              const filename = path.resolve(POSTS_DIR, name)
+              const fileName = path.resolve(POSTS_DIR, name)
               const fileContents = data.fileBinary.toString();
-              console.log('fileContents:', fileContents)
+
+              fs
+                .outputFile(fileName, fileContents)
+                .catch(error => console.log(error));
             })
             .catch(error => {
               console.log(error);
