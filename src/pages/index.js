@@ -6,28 +6,16 @@ import Post from '../components/post';
 import Layout from "../components/layout";
 
 const IndexPage = ({ data }) => {
-  const listStyles = {
-    listStyle: 'none',
-    padding: 0,
-    margin: 0
-  };
-
   return (
     <Layout>
-      <div>
-        <ul className="posts" style={listStyles}>
+      <div className="posts">
           {
             data.allMarkdownRemark.edges.map(edge => {
               const { node: post } = edge;
 
-              return (
-                <li key={post.id}>
-                  <Post post={post} />
-                </li>
-              );
+              return <Post key={post.id} post={post} />;
             })
           }
-        </ul>
       </div>
     </Layout>
   );
