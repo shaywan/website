@@ -19,7 +19,6 @@ const Layout = ({ children }) => {
 
   const renderLayout = (data) => (
     <div className="wrapper">
-      <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
     </div>
   );
