@@ -16,9 +16,13 @@ p {
   line-height: 2.1rem;
 }
 
-a {}
+a {
+  color: #2278FF;
+}
 
-a:hover {}
+a:hover {
+  color: #005FF5;
+}
 
 a:active,
 a:focus {
@@ -83,7 +87,6 @@ main {
   font-size: 2rem;
   line-height: 3rem;
   display: block;
-  color: #2278FF;
 }
 
 .heading__large {
