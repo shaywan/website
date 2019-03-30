@@ -6,8 +6,6 @@ const Post = ({ post }) => {
 
   return (
     <div className="post">
-      <img style={{ width: '100px', height: '100px', background: '#ccc' }} src="" alt="" />
-
       <div className="post__details">
         <h2 className="post__title">{frontmatter.title}</h2>
         <p class="post__date">Published N days ago</p>

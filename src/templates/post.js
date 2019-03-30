@@ -11,7 +11,6 @@ export default function Template ({ data }) {
   return (
     <Layout>
       <div class="post-wrapper">
-        <Link className="post__back space__large" to={'/'}>Back</Link>
         <article>
           <h1 className="heading__large">{title}</h1>
           <div className="body__large" dangerouslySetInnerHTML={{__html: post.html}} />
