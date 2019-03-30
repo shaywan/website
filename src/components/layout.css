@@ -23,6 +23,15 @@ a {
   color: #C92600;
 }
 
+a:hover {
+  color: #270036;
+}
+
+a:active,
+a:focus {
+  background: none;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
